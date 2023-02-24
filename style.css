@@ -2,27 +2,74 @@
     height: 100vh;
     width: 100%;
     margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(src/Lato/Lato-Regular.ttf);
+    font-family: Lato;
+    src: url(src/Lato/Lato-Bold.ttf);
+    font-weight: bold;
+    font-family: Lato;
+    src: url(src/Lato/Lato-Italic.ttf);
+    font-style: italic;
+
+
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+    font-family: Lato;
+    font-weight: bold;
+    max-height: 10%;
+}
+
+.container {
+   margin: 20px;
+   border: 2px solid peru;
+   display: flex;
+   flex-direction: row;
+   align-items: space-between;
+   max-height: 50%;
+   width: 100%;
+}
+
+.joueur1 {
+    border: 1px solid black;
+    height: 100%;
+    
+}
+
+.imgDice {
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid purple;
+    margin: 0 10px 0 10px;
+
+}
+
+.joueur2 {
+    height: 100%;
+    border: 1px solid teal;
+}
+
+.zoneNeutre {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    max-height: 50%;
+}
+
+.zoneNeutre button {
+    max-height: 200px;
+    border-radius: 25px;
 }
 
 button {
     background-color: darkred;
     color: black;
-}
-
-.container {
-    display: flex;
-
-}
-
-.joueur1 {
-    width: 30%;
-}
-
-.joueur2 {
-    width: 30%;
-}
-
-.zoneNeutre {
-    width: 40%;
-    height: 100vh;
 }

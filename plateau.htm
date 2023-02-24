@@ -8,20 +8,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Le Jeu de Dé</h1>
     <div class="container">
         <div class="joueur1">
             <span class="score">100</span>
         </div>
-        <div class="zoneNeutre">
-            <button class="newgame" type="submit">Nouvelle Partie</button>
-            <div class="dice"><img src="src/de1.png" alt="" class="imgDice"></div>
-            <button class="launch" type="submit">Lancer le dé</button>
-            <button class="garder" type="submit">Garder</button>
-        </div>
+
+        <div class="dice"><img src="src/D6_1.png" alt="" class="imgDice"></div>
+        <span>SCORE DU TOUR:</span>
+        <span class="roundScore"></span>
+        
         <div class="joueur2">
-        <span class="score">100</span>
+        <span class="score">200</span>
         </div>
-    </div>
+     
+    </div>    
+        
+    <div class="zoneNeutre">
+            <button id="newgame" type="submit">Nouvelle Partie</button>
+            <button id="launch" type="submit">Lancer le dé</button>
+            <button id="garder" type="submit">Garder</button>
+        </div>
+   
 
 
 
