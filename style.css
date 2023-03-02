@@ -1,75 +1,62 @@
-* {
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #eee;    
 }
 
-@font-face {
-    font-family: Lato;
-    src: url(src/Lato/Lato-Regular.ttf);
-    font-family: Lato;
-    src: url(src/Lato/Lato-Bold.ttf);
-    font-weight: bold;
-    font-family: Lato;
-    src: url(src/Lato/Lato-Italic.ttf);
-    font-style: italic;
-
-
+.zoneHaute {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 15px;
 }
 
 h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 75px;
-    font-family: Lato;
-    font-weight: bold;
-    max-height: 10%;
+    margin: auto;
+    font-size: 60px;
 }
 
-.container {
-   margin: 20px;
-   border: 2px solid peru;
-   display: flex;
-   flex-direction: row;
-   align-items: space-between;
-   max-height: 50%;
-   width: 100%;
+
+.zoneJeu{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr;
+    gap: 15px;
 }
 
-.joueur1 {
-    border: 1px solid black;
-    height: 100%;
-    
+.zoneCentrale{
+    border: darkred solid 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
 }
 
-.imgDice {
-    max-width: 200px;
-    max-height: 200px;
-    border: 1px solid purple;
-    margin: 0 10px 0 10px;
-
+.imgDice{
+    margin: auto;
+    grid-row: 1/3;
 }
 
-.joueur2 {
-    height: 100%;
-    border: 1px solid teal;
-}
-
-.zoneNeutre {
-    display: flex;
-    flex-direction: row;
-    align-items: space-between;
-    max-height: 50%;
-}
-
-.zoneNeutre button {
-    max-height: 200px;
-    border-radius: 25px;
+.divtourScore{
+    grid-row: 1/3;
 }
 
 button {
     background-color: darkred;
     color: black;
+    border-radius: 15px;
+    min-height: 100px;
+    min-width: 150px;
+}
+
+button:hover{
+    background-color: red;
+    font-size: larger;
+    transition-property: font-size;
+    transition-duration: 0.3s;
+    transition-delay: 0s;
+    transition-timing-function: ease;
+}
+
+h4 {
+    margin: auto;
 }
