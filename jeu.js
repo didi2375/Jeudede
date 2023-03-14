@@ -6,7 +6,9 @@ const scoreJ2 = document.querySelector(".scoreJ2");
 const newgame = document.querySelector("#newgame");
 const garder = document.querySelector("#garder");
 const launch = document.querySelector("#launch");
-const exit = document.querySelector("#exit");
+const displayJ1 = document.querySelector(".joueur1");
+const displayJ2 = document.querySelector(".joueur2");
+
 
 
 
@@ -27,38 +29,24 @@ let nbreLancer = 0;
 
 launch.addEventListener('click', lancer, false) 
 
+function afficheJoueurActif() {
+    displayJ1.classList.toggle("joueurActif");
+    displayJ2.classList.toggle("joueurActif");    
+}
 function lancer() {
     if (nbreLancer == 0){ 
         player = joueur1;
         player.tour = true;
+        displayJ1.classList.toggle("joueurActif");
     } 
     nbreLancer++; 
    
     Dice = Math.floor((Math.random()*6) + 1);
-    console.log(player);
     affiche_De();
-    checkRules(Dice)   
-    console.log("L'encours : " + scoreEncours);
+    checkRules(Dice)
 
     function affiche_De(){    
-        switch(Dice) {
-            case  2 : (imageDe.src="src/D6_2.png");
-            break;
-        
-            case  3 : (imageDe.src="src/D6_3.png");
-            break;
-        
-            case  4 : (imageDe.src="src/D6_4.png");
-            break;
-        
-            case  5 : (imageDe.src="src/D6_5.png");
-            break;
-        
-            case  6 : (imageDe.src="src/D6_6.png");
-            break;
-        
-            default:  (imageDe.src="src/D6_1.png");
-        };
+        imageDe.src="src/D6_"+`${Dice}`+".png";
         };
 
     function checkRules() {
@@ -69,7 +57,7 @@ function lancer() {
         }
     
         else {
-        alert("Dommage "+ `${player.id}` + " !!")
+        setTimeout (alert("Dommage "+ `${player.id}` + " !!"), 1500);
         changerJoueur();
         }
     }
@@ -82,10 +70,14 @@ function changerJoueur(){
     if(player.id == "Joueur 1"){
         player = joueur2;
         player.tour = true;
+        afficheJoueurActif();
+
+
     }
     else {
         player = joueur1;
         player.tour = true;
+        afficheJoueurActif();
     }
 }   
 garder.addEventListener('click', keep, false)
@@ -114,4 +106,8 @@ function keep() {
     console.log("score Joueur 2: " + joueur2.score);
 }
 
-newgame.addEventListener('click', function (){document.location.reload(),false});
+newgame.addEventListener('click', nouveauJeu, false);
+
+function nouveauJeu() {
+    alert("Démarrer une nouvelle partie ??");
+}
