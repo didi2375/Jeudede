@@ -1,13 +1,14 @@
 // Sélecteurs //
 const imageDe = document.querySelector(".imgDice");
-const scoreTour = document.querySelector(".roundScore");
-const scoreJ1 = document.querySelector(".scoreJ1");
-const scoreJ2 = document.querySelector(".scoreJ2");
-const newgame = document.querySelector("#newgame");
-const garder = document.querySelector("#garder");
-const launch = document.querySelector("#launch");
-const displayJ1 = document.querySelector(".joueur1");
-const displayJ2 = document.querySelector(".joueur2");
+const scoreTourJ1 = document.querySelector("#scoreTourJ1");
+const scoreTourJ2 = document.querySelector("#scoreTourJ2");
+const scoreJ1 = document.querySelector("#scoreJ1");
+const scoreJ2 = document.querySelector("#scoreJ2");
+const newgame = document.querySelector("#new-game-btn");
+const garder = document.querySelector("#keep-btn1");
+const launch = document.querySelector("#roll-btn1");
+const displayJ1 = document.querySelector("#joueur1");
+const displayJ2 = document.querySelector("#joueur2");
 
 
 
@@ -30,51 +31,49 @@ let nbreLancer = 0;
 launch.addEventListener('click', lancer, false) 
 
 function afficheJoueurActif() {
-    displayJ1.classList.toggle("joueurActif");
-    displayJ2.classList.toggle("joueurActif");    
+    displayJ1.classList.toggle("activePlayer");
+    displayJ2.classList.toggle("activePlayer");
+    player.id == "Joueur 1" ? scoreTourJ1.textContent = `${scoreEncours}` : scoreTourJ2.textContent = `${scoreEncours}`;   
 }
+
+
 function lancer() {
     if (nbreLancer == 0){ 
         player = joueur1;
         player.tour = true;
-        displayJ1.classList.toggle("joueurActif");
+        displayJ1.classList.toggle("activePlayer");
     } 
-    nbreLancer++; 
-   
-    Dice = Math.floor((Math.random()*6) + 1);
+    nbreLancer++;    
+    let Dice = Math.floor((Math.random()*6) + 1);
     affiche_De();
-    checkRules(Dice)
-
     function affiche_De(){    
         imageDe.src="src/D6_"+`${Dice}`+".png";
-        };
-
-    function checkRules() {
+        }
+    checkRules(Dice);
     
+    function checkRules() {    
         if (Dice !== 1) {
         scoreEncours += Dice;
-        scoreTour.textContent = `${scoreEncours}`;
-        }
-    
-        else {
-        setTimeout (alert("Dommage "+ `${player.id}` + " !!"), 1500);
-        changerJoueur();
+           player.id == "Joueur 1" ? scoreTourJ1.textContent = `${scoreEncours}` : scoreTourJ2.textContent = `${scoreEncours}`;                
+        }else {
+            changerJoueur();
         }
     }
 }
 
+
+
 function changerJoueur(){
     player.tour = false;
     scoreEncours = 0;
-    scoreTour.textContent = "En attente du lancer";
     if(player.id == "Joueur 1"){
+        scoreTourJ1.textContent = "En attente du lancer";
         player = joueur2;
         player.tour = true;
         afficheJoueurActif();
-
-
     }
     else {
+        scoreTourJ2.textContent = "En attente du lancer";
         player = joueur1;
         player.tour = true;
         afficheJoueurActif();
@@ -95,19 +94,17 @@ function keep() {
         checkWin(joueur1.score);
         changerJoueur();
     }
-
     else {
         joueur2.score += scoreEncours;
         scoreJ2.textContent = `${joueur2.score}`; 
         checkWin(joueur2.score);
         changerJoueur();
-    }   
-    console.log("score Joueur 1: " + joueur1.score);
-    console.log("score Joueur 2: " + joueur2.score);
+    }
 }
 
 newgame.addEventListener('click', nouveauJeu, false);
 
 function nouveauJeu() {
     alert("Démarrer une nouvelle partie ??");
+    Location.reload(true);
 }
