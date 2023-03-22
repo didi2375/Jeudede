@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Jeu de dé</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <script src="jeu.js" type="module"></script>
+</head>
+<body>
+  <div class="app">
+    <div class="hautContainer">
+      <button id="new-game-btn">
+        <img class="icone" id="newGame-icon" src="src/newgame.svg"></img>
+        Nouvelle Partie
+      </button>
+    </div>
+
+    <div id="game">
+      <div class="joueur" id="joueur1">
+        <h2>Joueur 1</h2>
+        <p class="score">Score : <span id="scoreJ1">0</span></p>
+        <div class="scoreTourContainer">
+          <h3>Tour Actuel : </h3>
+          <p class="scoreTour" id="scoreTourJ1">0</p>
+        </div>
+      </div>
+
+      <div class="tour">
+        <div class="dice">
+          <img class="imgDice" src="src/D6_1.png" alt="Face de dé">
+        </div>
+        <button class="roll-btn" id="roll-btn1">
+          <img class="icone" id="roll-icon" src="src/relancer.svg"></img>
+          Lancer le dé
+        </button>
+        <button class="keep-btn" id="keep-btn1">
+          <img class="icone" id="keep-icon"
+            src="src/garder.svg"></img>
+            Garder
+        </button>
+      </div>
+
+      <div class="joueur" id="joueur2">
+        <h2>Joueur 2</h2>
+        <p class="score">Score : <span id="scoreJ2">0</span></p>
+        <div class="scoreTourContainer">
+          <h3>Tour Actuel : </h3>
+          <p class="scoreTour" id="scoreTourJ2">0</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
